@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
     
 jobs:
   deploy-to-github-pages:
@@ -13,7 +13,7 @@ jobs:
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 6.0.4
+        dotnet-version: 6.0.402
         
     - name: Publish .NET Project
       run: dotnet publish -c Release -o release --nologo
@@ -28,7 +28,7 @@ jobs:
       run: touch release/wwwroot/.nojekyll
       
     - name: Commit wwwroot to GitHub Pages
-      uses: w4TR1x/github-pages-deploy-action@3.7.1
+      uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
