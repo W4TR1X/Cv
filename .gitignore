@@ -4,3 +4,5 @@
 
 /WasmCv/Properties/PublishProfiles
 /WasmCv/WasmCv.csproj.user
+/WasmCv
+/.vs
