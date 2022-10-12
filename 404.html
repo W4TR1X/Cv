@@ -180,9 +180,9 @@
                     <h4 style="font-family: 'Roboto';font-size: larger;font-weight: 500;">Yükleniyor...</h4>
                     <p style="font-family: 'Roboto';">Lütfen veriler yüklenene kadar bekleyiniz</p>
                     <div class="container-fluid my-2" style="width: 100%; z-index: 1000;">
-                        <div class="mud-progress-linear mud-progress-linear-rounded mud-progress-linear-large mud-progress-linear-color-primary horizontal mud-flip-x-rtl">
-                            <div id="wasm-boot-progressbar" class="mud-progress-linear-bars" style="background:darkgray;border-radius:5px;">
-                                <div class="mud-progress-linear-bar" style="width:50%;"></div>
+                        <div>
+                            <div id="wasm-boot-progressbar" style="background:darkgray;border-radius:5px;">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:100%;height:10px;"></div>
                             </div>
                         </div>
                     </div>
@@ -224,7 +224,8 @@
 
                         var progressbar = document.getElementById("wasm-boot-progressbar");
                         if (progressbar) {
-                            progressbar.innerHTML = "<div class='mud-progress-linear-bar' style='background:brown;width:" + (preLoadFinish / preLoadCount * 100) + "%'></div>";
+                            progressbar.innerHTML = "<div class='progress-bar' "
+                                + "style='background:brown;background-color:var(--bs-indigo);height:10px;width:" + (preLoadFinish / preLoadCount * 100) + "%'></div>";
                         }
                         if (preLoadFinish == preLoadCount) {
                             var span = new Date().getTime() - preLoadStart;
