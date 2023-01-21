@@ -1,40 +1,4 @@
-﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
-
-html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-h1:focus {
-    outline: none;
-}
-
-a, .btn-link {
-    color: #0071c1;
-}
-
-.btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}
-
-.content {
-    padding-top: 1.1rem;
-}
-
-.valid.modified:not([type=checkbox]) {
-    outline: 1px solid #26b050;
-}
-
-.invalid {
-    outline: 1px solid red;
-}
-
-.validation-message {
-    color: red;
-}
-
-#blazor-error-ui {
+﻿#blazor-error-ui {
     background: lightyellow;
     bottom: 0;
     box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
@@ -62,3 +26,36 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+/* Page sticky header style */
+.sticky-info {
+    position: sticky;
+    top: 70px;
+}
+
+/* Aspect Ratio styles */
+.wrapper {
+    position: relative;
+    width: 100%; /* <-- just a default, can be anything. */
+}
+
+.three-by-two.aspect-ratio {
+    padding-bottom: 66.666%
+}
+
+.four-by-three.aspect-ratio {
+    padding-bottom: 75%
+}
+
+.sixteen-by-nine.aspect-ratio {
+    padding-bottom: 56.25%
+}
+
+.content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /*padding: 0 24px;*/ /* Optional padding for content area */
+}

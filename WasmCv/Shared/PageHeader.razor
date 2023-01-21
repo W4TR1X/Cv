@@ -1,0 +1,16 @@
+﻿<PageTitle>@PageInfoService.AppTitle</PageTitle>
+@code {
+    [Inject] public PageInfoService PageInfoService { get; set; } = default!;
+
+    string? title;
+    [Parameter]
+    public string? Title
+    {
+        get => title;
+        set
+        {
+            title = value;
+            PageInfoService.SetPageTitle(title);
+        }
+    }
+}

@@ -1,17 +1,65 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<MudThemeProvider @bind-IsDarkMode=_darkTheme />
+<MudDialogProvider />
+<MudSnackbarProvider />
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
+<MudLayout>
+    <MudAppBar>
+        <MudIconButton Icon="@Icons.Material.Filled.Menu"
+                       Color="Color.Inherit" Edge="Edge.Start"
+                       OnClick="@((e) => DrawerToggle())" />
+        <span>@PageInfoService.PageTitle</span>
+        <MudSpacer />
+        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit"
+                       OnClick="@(() => NavigationManager.NavigateTo("https://github.com/W4TR1X"))" />
+        <MudToggleIconButton @bind-Toggled="_darkTheme"
+                             Icon="@Icons.Material.Filled.DarkMode"
+                             Color="@Color.Inherit"
+                             Title="Dark Mode"
+                             ToggledIcon="@Icons.Material.Filled.LightMode"
+                             ToggledColor="@Color.Inherit"
+                             ToggledTitle="Light Mode" />
+        <MudIconButton Icon="@Icons.Material.Filled.MoreVert"
+                       Color="Color.Inherit" />
+    </MudAppBar>
+    @*
+    <MudDrawer ClipMode="DrawerClipMode.Always"
+    Elevation="2" @bind-Open="@_drawerOpen">
+    <NavMenu />
+    </MudDrawer>
+    *@
+    <MudMainContent>
+        @*@if (PageInfoService.PageTitle != null)
+        {
+            <MudPaper Elevation="25" Class="mud-width-full">
+                <MudText>@PageInfoService.PageTitle</MudText>
+            </MudPaper>
+        }*@
+        <MudContainer Fixed="true">
             @Body
-        </article>
-    </main>
-</div>
+        </MudContainer>
+        <MudScrollToTop>
+            <MudFab Color="Color.Tertiary" StartIcon="@Icons.Material.Filled.ArrowUpward" />
+        </MudScrollToTop>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    [Inject] public PageInfoService PageInfoService { get; set; } = default!;
+    [Inject] public NavigationManager NavigationManager { get; set; } = default!;
+
+    bool _darkTheme = false;
+    bool _drawerOpen = false;
+
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+
+    protected override void OnParametersSet()
+    {
+        PageInfoService.AppTitleChanged += (t) => StateHasChanged();
+        base.OnParametersSet();
+    }
+}

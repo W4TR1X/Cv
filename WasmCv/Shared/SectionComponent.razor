@@ -1,0 +1,23 @@
+﻿<MudItem Class="mt-16" xs="12" md="3">
+    <div class="sticky-info explore-text">
+        <MudText Typo="Typo.h5">@Title</MudText>
+        <MudText Typo="Typo.subtitle1">@Description</MudText>
+    </div>
+</MudItem>
+<MudItem Class="mt-16" xs="12" md="9">
+    <MudPaper Class="pa-3 mud-width-full">
+        <div class="wrapper">
+            <div class="sixteen-by-nine aspect-ratio"></div>
+            <MudCarousel Class="mud-width-full content"
+                         ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true"
+                         TData="object">
+                @ChildContent
+            </MudCarousel>
+        </div>
+    </MudPaper>
+</MudItem>
+@code {
+    [Parameter] public string Title { get; set; } = default!;
+    [Parameter] public string? Description { get; set; }
+    [Parameter] public RenderFragment ChildContent { get; set; } = default!;
+}
