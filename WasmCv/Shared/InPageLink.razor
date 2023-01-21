@@ -1,0 +1,8 @@
+﻿<MudLink Href="@Path()">[@(Text ?? Id)]</MudLink>
+@code {
+    [Inject] public NavigationManager NavigationManager { get; set; } = default!;
+    [Parameter] public string Id { get; set; } = default!;
+    [Parameter] public string? Text { get; set; } = default!;
+
+    string Path() => $"{NavigationManager.Uri}#{Id}";
+}

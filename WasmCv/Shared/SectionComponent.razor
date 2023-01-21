@@ -1,23 +1,41 @@
-﻿<MudItem Class="mt-16" xs="12" md="3">
+﻿<MudItem Class="mt-2" xs="12" md="3" id="@Id">
     <div class="sticky-info explore-text">
         <MudText Typo="Typo.h5">@Title</MudText>
         <MudText Typo="Typo.subtitle1">@Description</MudText>
+        @if (Tags != null && Tags.Length > 0)
+        {
+            foreach (var tag in Tags)
+            {
+                <MudChip Variant="Variant.Filled"
+                 Disabled=true
+                 Color="Color.Primary">@tag</MudChip>
+            }
+        }
     </div>
 </MudItem>
-<MudItem Class="mt-16" xs="12" md="9">
+<MudItem Class="mt-0" xs="12" md="9">
     <MudPaper Class="pa-3 mud-width-full">
         <div class="wrapper">
             <div class="sixteen-by-nine aspect-ratio"></div>
             <MudCarousel Class="mud-width-full content"
-                         ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true"
+                         ShowArrows="true"
+                         ShowBullets="true"
+                         EnableSwipeGesture="true"
                          TData="object">
-                @ChildContent
+                @Carousel
             </MudCarousel>
         </div>
+        <MudPaper Class="pa-1 ma-2" Outlined="true">
+            @Summary
+        </MudPaper>
     </MudPaper>
 </MudItem>
 @code {
+    [Parameter] public string Id { get; set; } = default!;
     [Parameter] public string Title { get; set; } = default!;
     [Parameter] public string? Description { get; set; }
-    [Parameter] public RenderFragment ChildContent { get; set; } = default!;
+    [Parameter] public string[]? Tags { get; set; }
+
+    [Parameter] public RenderFragment Carousel { get; set; } = default!;
+    [Parameter] public RenderFragment Summary { get; set; } = default!;
 }

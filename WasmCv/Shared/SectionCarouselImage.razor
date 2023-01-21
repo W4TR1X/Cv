@@ -1,0 +1,10 @@
+﻿<MudCarouselItem>
+    <div class="d-flex" style="height:100%;width:100%;justify-content:center;">
+        <MudImage Fluid="true" Class="rounded-lg"
+                  Src="@Href" />
+    </div>
+</MudCarouselItem>
+
+@code{
+    [Parameter] public string Href { get; set; } = default!;
+}

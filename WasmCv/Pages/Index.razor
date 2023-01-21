@@ -1,12 +1,251 @@
 ﻿@page "/"
 <PageHeader Title="Projeler" />
 <MudGrid>
-    <SectionComponent Title="Mountains" Description="Something something">
-        <MudCarouselItem>
-            <div class="d-flex" style="height:100%;width:100%;justify-content:center;">
-                <MudImage Fluid="true" Class="rounded-lg"
-                          Src="assets/projects/dashboard/1.jpg" />
-            </div>
-        </MudCarouselItem>
+    <SectionGroupHeaderComponent Title="ŞİRKET İÇİ PROJELER" />
+    <SectionComponent Id="Dashboard"
+                      Title="Dashboard"
+                      Description=""
+                      Tags="@(new[]{"c#","aspnetcore","MVC", "dotnet7"})">
+        <Carousel>
+            <SectionCarouselImage Href="assets/projects/dashboard/1.png" />
+        </Carousel>
+        <Summary>
+            AspNet MVC 5 ile yazılmış uygulama dotnet 5'in çıkışıyla yeniden yazılarak ve Entity Framework Core
+            kullanılarak tekrar dizayn edilmiştir. Uygulamadaki tüm html (razor) tablolar <InPageLink Id="ViewTable" />
+            ile gösterilir ve excel çıktısı aynı kütüphaneden üretilmektedir.
+
+            Uygulamanın amacı <InPageLink Text="Sap Task Worker" Id="Sap-Task-Worker" /> üzerinden akan verileri
+            belirli raporlamalar ve grafikler ile yöneticilerin yetkilerine göre görebilecekleri sayfalar oluşturmaktadır.
+            Arkaplanda Seq loglama, Hangfire ile görev zamanlama gibi kütüphaneler kullanmaktadır.
+            Diğer uygulamalar için hava durumu ve profil resmi gibi bazı Web Apiler içermektedir.
+            Blazor Server ve Blazor Wasm component sistemleri entegre edilmeye başlanmıştır.
+        </Summary>
+    </SectionComponent>
+    <SectionDividerComponent />
+    <SectionComponent Id="Seri-Spek-Goruntule"
+                      Title="Seri Spek Görüntüle"
+                      Description=""
+                      Tags="@(new[]{"c#","Winforms","dotnet7"})">
+        <Carousel>
+            <SectionCarouselImage Href="assets/projects/dashboard/1.png" />
+        </Carousel>
+        <Summary>
+            Ürün'e ait tüm verilerin (Müşteri, ağırlık ve boyut bilgiler, teknik bilgiler, kimyasal ve metalurjik bilgiler)
+            ERP <InPageLink Text="Sap Task Worker" Id="Sap-Task-Worker" /> üzerinden alınarak tek bir ekran üzerinde,
+            ürün kartı tarzında görüntülenmesini sağlar. Ayrıca ürün numarası üzerinden ürün araması ve üretim kodundan
+            tarih çevirisi de yapar.
+        </Summary>
+    </SectionComponent>
+    <SectionDividerComponent />
+    <SectionComponent Id="Kalite-Yonetim-Sistemi"
+                      Title="Kalite Yönetim Sistemi"
+                      Description=""
+                      Tags="@(new[]{"c#","Winforms","dotnet7"})">
+        <Carousel>
+            <SectionCarouselImage Href="assets/projects/dashboard/1.png" />
+        </Carousel>
+        <Summary>
+            Şu anlık sadece uygulamaya girilen kalite standartlarını belirtilen site (örnek:tse) üzerinden
+            güncellik takibini yapmaktadır. Veri girişi ve değişiklikleri uygulama üzerinden, site üzernden
+            kontrol ve mail işlemleri <InPageLink Text="Automation Task Worker" Id="Automation-Task-Worker" />
+            tarafından yapılmaktadır.
+        </Summary>
+    </SectionComponent>
+    <SectionDividerComponent />
+    <SectionComponent Id="Analiz-Bilgi-Formu"
+                      Title="Analiz Bilgi Formu"
+                      Description=""
+                      Tags="@(new[]{"c#","Winforms","dotnet7"})">
+        <Carousel>
+            <SectionCarouselImage Href="assets/projects/dashboard/1.png" />
+        </Carousel>
+        <Summary>
+            Spectro cihazlarında ürünün malzeme özelliklerinin çıkartılması sonrası verilerin incelenmesi ve ayrıca
+            fiziksel olarak çıktı alınmasını kolaylaştırmak üzerine oluşturulmuştur. Pos cihazı benzeri yazıcılar
+            üzerinden çıktı alır.
+        </Summary>
+    </SectionComponent>
+    <SectionDividerComponent />
+    <SectionComponent Id="Kum-Elek-Veritabanı"
+                      Title="Kum Elek Veritabanı"
+                      Description=""
+                      Tags="@(new[]{"c#","Winforms","dotnet7"})">
+        <Carousel>
+            <SectionCarouselImage Href="assets/projects/dashboard/1.png" />
+        </Carousel>
+        <Summary>
+            Tesislerde kullanılan hammaddenin (kum) eleme işlemlerinin analiz girişleri diğer ek bilgilerle yapılır.
+            Sonuçların geçmişini tutar.
+        </Summary>
+    </SectionComponent>
+    <SectionDividerComponent />
+    <SectionComponent Id="Deneme-Takibi"
+                      Title="Deneme Takibi"
+                      Description=""
+                      Tags="@(new[]{"vb.net","Winforms","dotnet3.5","in update queue to c#"})">
+        <Carousel>
+            <SectionCarouselImage Href="assets/projects/dashboard/1.png" />
+        </Carousel>
+        <Summary>
+            Şirket içerisindeki numune ürün takibinin sağlıklı şekilde yapılması amacıyla kullanılır.
+            ERP <InPageLink Text="Sap Task Worker" Id="Sap-Task-Worker" /> üzerinden üretilen ürünlerin bilgilerini
+            alarak öncelikle üretim maili atar ve uygulamaya ekler. Veritabanında yetkilendirilen kullanıcılar tarafından
+            kendileri için belirtilen alanlara girişler yapılarak işlemler devam eder. Kayıtlar sistem üzerinde tutulur
+            istendiği taktirde numune sonucunun çıktısı alınabilir.
+        </Summary>
+    </SectionComponent>
+    <SectionDividerComponent />
+    <SectionComponent Id="Not-Panosu"
+                      Title="Not Panosu"
+                      Description=""
+                      Tags="@(new[]{"vb.net","Winforms","dotnet3.5","in update queue to c#"})">
+        <Carousel>
+            <SectionCarouselImage Href="assets/projects/dashboard/1.png" />
+        </Carousel>
+        <Summary>
+            Kullanıcıların kendilerine veya genele açık görev ve not tanımlamalarını ve bunların takibini yapabildikleri
+            not tutma uygulaması. Görevlere tarih limiti konulabilir, görev ataması olduğunda kullanıcı maille ve uygulama
+            içi bilgilendirirlir.
+        </Summary>
+    </SectionComponent>
+    <SectionDividerComponent />
+    <SectionComponent Id=""
+                      Title=""
+                      Description=""
+                      Tags="@(new[]{""})">
+        <Carousel>
+        </Carousel>
+        <Summary>
+        </Summary>
+    </SectionComponent>
+    <SectionDividerComponent />
+    <SectionComponent Id=""
+                      Title=""
+                      Description=""
+                      Tags="@(new[]{""})">
+        <Carousel>
+        </Carousel>
+        <Summary>
+        </Summary>
+    </SectionComponent>
+    <SectionDividerComponent />
+    <SectionComponent Id=""
+                      Title=""
+                      Description=""
+                      Tags="@(new[]{""})">
+        <Carousel>
+        </Carousel>
+        <Summary>
+        </Summary>
+    </SectionComponent>
+    <SectionDividerComponent />
+    <SectionComponent Id=""
+                      Title=""
+                      Description=""
+                      Tags="@(new[]{""})">
+        <Carousel>
+        </Carousel>
+        <Summary>
+        </Summary>
+    </SectionComponent>
+    <SectionDividerComponent />
+    <SectionComponent Id=""
+                      Title=""
+                      Description=""
+                      Tags="@(new[]{""})">
+        <Carousel>
+        </Carousel>
+        <Summary>
+        </Summary>
+    </SectionComponent>
+    <SectionDividerComponent />
+    <SectionComponent Id=""
+                      Title=""
+                      Description=""
+                      Tags="@(new[]{""})">
+        <Carousel>
+        </Carousel>
+        <Summary>
+        </Summary>
+    </SectionComponent>
+    <SectionDividerComponent />
+    <SectionComponent Id=""
+                      Title=""
+                      Description=""
+                      Tags="@(new[]{""})">
+        <Carousel>
+        </Carousel>
+        <Summary>
+        </Summary>
+    </SectionComponent>
+    <SectionDividerComponent />
+    <SectionComponent Id=""
+                      Title=""
+                      Description=""
+                      Tags="@(new[]{""})">
+        <Carousel>
+        </Carousel>
+        <Summary>
+        </Summary>
+    </SectionComponent>
+    <SectionDividerComponent />
+    <SectionComponent Id=""
+                      Title=""
+                      Description=""
+                      Tags="@(new[]{""})">
+        <Carousel>
+        </Carousel>
+        <Summary>
+        </Summary>
+    </SectionComponent>
+    <SectionDividerComponent />
+    <SectionComponent Id=""
+                      Title=""
+                      Description=""
+                      Tags="@(new[]{""})">
+        <Carousel>
+        </Carousel>
+        <Summary>
+        </Summary>
+    </SectionComponent>
+    <SectionDividerComponent />
+    <SectionComponent Id=""
+                      Title=""
+                      Description=""
+                      Tags="@(new[]{""})">
+        <Carousel>
+        </Carousel>
+        <Summary>
+        </Summary>
+    </SectionComponent>
+    <SectionDividerComponent />
+    <SectionComponent Id=""
+                      Title=""
+                      Description=""
+                      Tags="@(new[]{""})">
+        <Carousel>
+        </Carousel>
+        <Summary>
+        </Summary>
+    </SectionComponent>
+    <SectionDividerComponent />
+    <SectionComponent Id=""
+                      Title=""
+                      Description=""
+                      Tags="@(new[]{""})">
+        <Carousel>
+        </Carousel>
+        <Summary>
+        </Summary>
+    </SectionComponent>
+    <SectionDividerComponent />
+    <SectionComponent Id=""
+                      Title=""
+                      Description=""
+                      Tags="@(new[]{""})">
+        <Carousel>
+        </Carousel>
+        <Summary>
+        </Summary>
     </SectionComponent>
 </MudGrid>

@@ -6,9 +6,8 @@
 
 <MudLayout>
     <MudAppBar>
-        <MudIconButton Icon="@Icons.Material.Filled.Menu"
-                       Color="Color.Inherit" Edge="Edge.Start"
-                       OnClick="@((e) => DrawerToggle())" />
+        @*<MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit"
+        Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />*@
         <span>@PageInfoService.PageTitle</span>
         <MudSpacer />
         <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit"
@@ -20,8 +19,7 @@
                              ToggledIcon="@Icons.Material.Filled.LightMode"
                              ToggledColor="@Color.Inherit"
                              ToggledTitle="Light Mode" />
-        <MudIconButton Icon="@Icons.Material.Filled.MoreVert"
-                       Color="Color.Inherit" />
+        @*<MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" />*@
     </MudAppBar>
     @*
     <MudDrawer ClipMode="DrawerClipMode.Always"
@@ -32,9 +30,9 @@
     <MudMainContent>
         @*@if (PageInfoService.PageTitle != null)
         {
-            <MudPaper Elevation="25" Class="mud-width-full">
-                <MudText>@PageInfoService.PageTitle</MudText>
-            </MudPaper>
+        <MudPaper Elevation="25" Class="mud-width-full">
+        <MudText>@PageInfoService.PageTitle</MudText>
+        </MudPaper>
         }*@
         <MudContainer Fixed="true">
             @Body
