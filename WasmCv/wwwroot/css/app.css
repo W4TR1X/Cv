@@ -27,35 +27,46 @@
         content: "An error has occurred."
     }
 
-/* Page sticky header style */
-.sticky-info {
-    position: sticky;
-    top: 70px;
+/*  */
+.in-page-anchor {
+    scroll-margin-top: 90px;
 }
 
-/* Aspect Ratio styles */
-.wrapper {
-    position: relative;
-    width: 100%; /* <-- just a default, can be anything. */
+@media only screen and (max-width: 959px) {
+    .in-page-anchor {
+        scroll-margin-top: 60px;
+    }
 }
 
-.three-by-two.aspect-ratio {
-    padding-bottom: 66.666%
-}
+    /* Page sticky header style */
+    .sticky-info {
+        position: sticky;
+        top: 70px;
+    }
 
-.four-by-three.aspect-ratio {
-    padding-bottom: 75%
-}
+    /* Aspect Ratio styles */
+    .wrapper {
+        position: relative;
+        width: 100%; /* <-- just a default, can be anything. */
+    }
 
-.sixteen-by-nine.aspect-ratio {
-    padding-bottom: 56.25%
-}
+    .three-by-two.aspect-ratio {
+        padding-bottom: 66.666%
+    }
 
-.content {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    /*padding: 0 24px;*/ /* Optional padding for content area */
-}
+    .four-by-three.aspect-ratio {
+        padding-bottom: 75%
+    }
+
+    .sixteen-by-nine.aspect-ratio {
+        padding-bottom: 56.25%
+    }
+
+    .content {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        /*padding: 0 24px;*/ /* Optional padding for content area */
+    }

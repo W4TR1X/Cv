@@ -1,4 +1,4 @@
-﻿<MudLink OnClick="AnchorOnClickAsync">[@(Text ?? Id)]</MudLink>
+﻿<MudLink style="user-select:none;" OnClick="AnchorOnClickAsync">[@(Text ?? Id)]</MudLink>
 @code {
     [Inject] protected IJSRuntime JSRuntime { get; set; } = null!;
 
