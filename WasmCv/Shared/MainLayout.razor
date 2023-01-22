@@ -1,6 +1,6 @@
 ﻿@inherits LayoutComponentBase
 
-<MudThemeProvider @bind-IsDarkMode=_darkTheme />
+<MudThemeProvider @ref="@_mudThemeProvider" @bind-IsDarkMode=_isDarkMode />
 <MudDialogProvider />
 <MudSnackbarProvider />
 
@@ -12,7 +12,7 @@
         <MudSpacer />
         <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit"
                        OnClick="@(() => NavigationManager.NavigateTo("https://github.com/W4TR1X"))" />
-        <MudToggleIconButton @bind-Toggled="_darkTheme"
+        <MudToggleIconButton @bind-Toggled="_isDarkMode"
                              Icon="@Icons.Material.Filled.DarkMode"
                              Color="@Color.Inherit"
                              Title="Dark Mode"
@@ -47,7 +47,9 @@
     [Inject] public PageInfoService PageInfoService { get; set; } = default!;
     [Inject] public NavigationManager NavigationManager { get; set; } = default!;
 
-    bool _darkTheme = false;
+    private MudThemeProvider? _mudThemeProvider;
+
+    bool _isDarkMode = false;
     bool _drawerOpen = false;
 
     void DrawerToggle()
@@ -59,5 +61,14 @@
     {
         PageInfoService.AppTitleChanged += (t) => StateHasChanged();
         base.OnParametersSet();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _isDarkMode = await _mudThemeProvider.GetSystemPreference();
+            StateHasChanged();
+        }
     }
 }

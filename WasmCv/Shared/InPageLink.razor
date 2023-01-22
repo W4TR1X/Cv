@@ -1,8 +1,12 @@
-﻿<MudLink Href="@Path()">[@(Text ?? Id)]</MudLink>
+﻿<MudLink OnClick="AnchorOnClickAsync">[@(Text ?? Id)]</MudLink>
 @code {
-    [Inject] public NavigationManager NavigationManager { get; set; } = default!;
+    [Inject] protected IJSRuntime JSRuntime { get; set; } = null!;
+
     [Parameter] public string Id { get; set; } = default!;
     [Parameter] public string? Text { get; set; } = default!;
 
-    string Path() => $"{NavigationManager.Uri}#{Id}";
+    private async Task AnchorOnClickAsync()
+    {
+        await JSRuntime.InvokeVoidAsync("BlazorScrollToId", Id);
+    }
 }
